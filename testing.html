@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="description" content="Diogenis Gavras' personal site: projects, problems, and interests.">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full"></script>
+
+        <link rel="stylesheet" href="style/style.css">
+
+        <title>Diogenis Gavras</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Testing Page</h1>
+            <nav class="main-nav">
+                <a href="articles.html">Articles</a>
+                <a href="problems.html">Worked Problems</a>
+            </nav>
+        </header>
+
+        <main>
+            <p>If you see this page, it means that I've done a bad job hiding it. There's nothing to see here. Just me testing the layout and messing around with CSS.</p>
+            <br>
+            <br>
+            <h2>Sample header</h2>
+            <p>Right now I am trying to make a 4'' TFT SPI LCD panel work. There is a lot of information to take in, especially for someone who's not that profficient in electronics. The largest obstacle is figuring out the ins and outs of the SPI interface, although, I am starting to understand how things work. First, set the CS (Chip Select) to low in order to enable the communication between the "Master" (Arduino) and the "Slave" (LCD panel). Then you need to specify whether you'll be sending a command or data using the D/C pin (Data/Command). You have to look up the hex codes for each command and send it via the MOSI pin (Master Out - Slave In). Then start sending the parameters of the command by setting the D/C pin to low. My initial roadblock was figuring out that Arduino has assigned specific pins for the SPI protocol. So when you first try to use the built-in SPI libary make sure you've connected everything up correctly.</p>
+            <br>
+            <br>
+            <h3>Now time for some LaTeX</h3>
+            Since particles exhibit both particle and wave-like behavior, they need a wave function. Let's suppose
+            <div class="latex-box">
+            \[
+                \psi(x, t) = e^{i(kx - \omega t)}
+            \]
+            </div>
+            But from Einstein and de Broglie we know that
+            <div class="latex-box">
+            \[
+                E = \hbar \omega, \;\; p = \hbar k
+            \]
+            </div>
+            Therefore
+            <div class="latex-box">
+            \[
+                \psi(x, t) = e^{\frac{i}{\hbar}(px - Et)}
+            \]
+            </div>
+            The Laplace transform is defined as
+            <div class="latex-box">
+            \[
+                \mathcal{L}\{f(t)\} \equiv \int_0^\infty e^{-st} f(t) dt
+            \]
+            </div>
+            <br>
+            <br>
+            <p>Here's a list of stuff</p>
+            <div class="latex-box">
+            <ul class="fancy-list">
+                <li>First entry</li>
+                <li>Second entry</li>
+                <li>Third entry</li>
+                <li>Fourth entry</li>
+            </ul>
+            </div>
+        </main>
+
+        <footer>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="index.html">Back</a>
+            <br>
+            <br>
+            <br>
+        </footer>
+    </body>
+
+</html>

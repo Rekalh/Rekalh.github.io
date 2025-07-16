@@ -1,0 +1,161 @@
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background-color: #e6f0ff; /* pastel blue */
+  color: #222;
+  padding: 1rem;
+}
+
+/* Container to limit width on large screens */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* Header */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+nav a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #0066cc;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+a {
+  color: #3366cc; /* a calm blue that contrasts well with light backgrounds */
+  text-decoration: none; /* remove underline */
+  font-weight: 500;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  color: #1a4fb1;
+  border-bottom: 1px solid #1a4fb1; /* underline on hover */
+}
+
+a:visited {
+  color: #5a4c99; /* slightly muted for visited links */
+}
+
+/* Main content */
+main section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #555;
+}
+
+.latex-box {
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #a5c1ff;
+  border-radius: 8px;
+  background-color: #d6e6ff;
+  font-size: 1.2rem;
+  overflow-x: auto;
+}
+
+.fancy-list {
+  list-style: disc inside;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+.fancy-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.main-nav {
+  background-color: #d4e6f9;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Horizontal nav list */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Link styling */
+.main-nav a {
+  text-decoration: none;
+  color: #2c3e50;
+  background-color: transparent;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.main-nav a:hover {
+  background-color: #b3d1f2;
+  text-decoration: none;
+}
+
+/* Responsive: smaller text and tighter padding on narrow screens */
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (min-width: 600px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
