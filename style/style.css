@@ -5,6 +5,15 @@
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto; /* optional: centers image with spacing */
+  border-radius: 8px; /* optional: adds soft corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* optional: subtle shadow */
+}
+
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;

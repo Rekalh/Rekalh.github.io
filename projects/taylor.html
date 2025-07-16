@@ -6,6 +6,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+        <link rel="stylesheet" href="../style/style.css">
+
         <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full"></script>
 
         <title>Taylor Series</title>
@@ -15,75 +17,80 @@
 
         <header>
             <h1>Taylor Series</h1>
-            Undoubtedly one of the most commonly used tricks in engineering and physics is the Taylor expansion. But what is it and where do we use it? First we will go through the idea and theory behind it, then we will work through some examples to signify its importance and finally we will briefly discuss the Taylor series for multivariable functions.
+            <nav class="main-nav">
+                <a href="articles.html">Articles</a>
+                <a href="problems.html">Worked Problems</a>
+                <a href="aboutme.html">About Me</a>
+            </nav>
         </header>
 
         <main>
+            <p>Undoubtedly, one of the most commonly used tricks in engineering and physics is the Taylor expansion. But what is it, and where do we use it? First, we will go through the idea and theory behind it, then we will work through some examples to signify its importance, and finally we will briefly discuss the Taylor series for multivariable functions.</p>
             <br>
             <br>
             <h2>What is the Taylor Series?</h2>
-            Let's consider some function \(f: A \to \mathbb{R}\). In most cases having an analytic expression of the function is useful, as it ensures precision in the calculations and results. But the world isn't fair and dealing with complex (not in the \(\mathbb{C}\) sense) functions can be daunting or outright impossible in physics/engineering applications. Especially when integrals and differential equations are involved. 
+            <p>Let's consider some function \(f: A \to \mathbb{R}\). In most cases having an analytic expression of the function is useful, as it ensures precision in the calculations and results. But the world isn't fair, and dealing with complex (not in the \(\mathbb{C}\) sense) functions can be daunting, or outright impossible in physics/engineering applications. Especially when integrals and differential equations are involved.</p>
             <br>
             <br>
-            So what if we could approximate the function as a sum of simpler terms? What is a family of functions that are easy to differentiate and integrate? Polynomials! So if we can express the function as a power series (think of it like an \(\infty-\)degree polynomial) then we would make our lives a lot easier.
+            <p>So what if we could approximate the function as a sum of simpler terms? What is a family of functions that are easy to differentiate and integrate? Polynomials! So if we can express the function as a power series (think of it like an infinite-degree polynomial), then we would make our lives a lot easier.</p>
             <br>
             <br>
-            Let's say that a random function can be written as a power series as follows
-            <div style="font-size: 120%;">
+            <p>Let's say that a random function can be written as a power series as follows</p>
+            <div class="latex-box">
             \[
                 f(x) = a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4 + \dots
             \]
             </div>
-            Now we need to find the coefficients \(a_n\). The \(a_0\) is easy to calculate
-            <div style="font-size: 120%;">
+            <p>Now we need to find the coefficients \(a_n\). The \(a_0\) is easy to calculate</p>
+            <div class="latex-box">
             \[
                 f(0) = a_0
             \]
             </div>
-            But what about the others? Ok let's see... If we calculate the derivative \(f'(x)\) we'll have
-            <div style="font-size: 120%;">
+            <p>But what about the others? Ok let's see... If we calculate the derivative \(f'(x)\) we have</p>
+            <div class="latex-box">
             \[
                 f'(x) = a_1 + 2a_2x + 3a_3x^2 + 4a_4x^3 + \dots
             \]
             </div>
-            And \(f'(0)\) is
-            <div style="font-size: 120%;">
+            <p>And \(f'(0)\) is</p>
+            <div class="latex-box">
             \[
                 f'(0) = a_1
             \]
             </div>
-            In the same way it's easy to see that
-            <div style="font-size: 120%;">
+            <p>In the same way, it's easy to see that</p>
+            <div class="latex-box">
             \[
                 f''(0) = 2a_2
             \]
             </div>
-            And in general for the n-th coefficient \(a_n\)
-            <div style="font-size: 120%;">
+            <p>And, in general, for the n-th coefficient \(a_n\)</p>
+            <div class="latex-box">
             \[
                 f^{(n)}(0) = n!a_n \implies a_n = \frac{f^{(n)}(0)}{n!}
             \]
             </div>
-            Now we have an expression for the coefficients of the series! Therefore
-            <div style="font-size: 120%;">
+            <p>Now we have an expression for the coefficients of the series! Therefore</p>
+            <div class="latex-box">
             \[
                 f(x) = f(0) + f'(0)x + \frac{f''(0)}{2}x^2 + \frac{f'''(0)}{6}x^3 + \dots
             \]
             </div>
-            Or as a sum
-            <div style="font-size: 120%;">
+            <p>Or as a sum</p>
+            <div class="latex-box">
             \begin{equation} \tag{1}
                 f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n
             \end{equation}
             </div>
-            This is the essence of the Taylor series. If this series converges (in most cases we assume it does without checking), it will converge exactly on \(f(x)\) and is called the Maclaurin series. Wait, didn't you say that this was the Taylor series? As we will see later, the above is a special case of the Taylor series centered around \(x = 0\) (If this doesn't make sense immediately don't worry, it will be discussed in more detail later).
+            <p>This is the essence of the Taylor series. If this series converges (in most cases we assume it does without checking), it will converge exactly on \(f(x)\) and is called the Maclaurin series. Wait, didn't you say that this was the Taylor series? As we will see later, the above is a special case of the Taylor series centered around \(x = 0\) (If this doesn't make sense immediately don't worry, it will be discussed in more detail later).</p>
             <br>
             <br>
-            But since we generally don't have infinite computational power, we cut off the series after some terms. In that case we'd have approximated the function as a polynomial (Note that we usually don't go further than a second-degree polynomial).
+            <p>But since we don't like dealing with infinity, we cut off the series after some terms. In that case we'd have approximated the function as a polynomial (Note that we usually don't go further than a second-degree polynomial).</p>
             <br>
             <br>
-            Let's work through an example. Let \(f(x) = \sin(x)\).
-            <div style="font-size: 120%;">
+            <p>Let's work through an example. Let \(f(x) = \sin(x)\).</p>
+            <div class="latex-box">
             \begin{gather*}
                 f'(x) = \cos(x) \\[1ex]
                 f''(x) = -\sin(x) \\[1ex]
@@ -91,8 +98,8 @@
                 \vdots
             \end{gather*}
             </div>
-            So for \(x = 0\), the values of the derivatives are
-            <div style="font-size: 120%;">
+            <p>So for \(x = 0\) the values of the derivatives are</p>
+            <div class="latex-box">
             \begin{gather*}
                 f(0) = 0 \\[1ex]
                 f'(0) = 1 \\[1ex]
@@ -103,194 +110,196 @@
                 \vdots
             \end{gather*}
             </div>
-            It is obvious that only the "odd" derivatives survive, whereas all the "even" are 0. Also the "odd" derivatives alternate between \(1\) and \(-1\). Therefore the Taylor series for this function will be
-            <div style="font-size: 120%;">
+            <p>It is obvious that only the "odd" derivatives survive, whereas all the "even" are 0. Also, the "odd" derivatives alternate between \(1\) and \(-1\). Therefore the Taylor series for this function will be</p>
+            <div class="latex-box">
             \[
                 f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!} x^n = f(0) + f'(0)x + \frac{f''(0)}{2}x^2 + \frac{f'''(0)}{6}x^3 + \frac{f^{4}(0)}{24}x^4 + \dots = x - \frac{x^3}{6} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots
             \]
             </div>
-            So as a sum
-            <div style="font-size: 120%;">
+            <p>So as a sum</p>
+            <div class="latex-box">
             \[
                 f(x) = \sum_{n=0}^\infty \frac{(-1)^n \ x^{2n+1}}{(2n + 1)!}
             \]
             </div>
-            Or if we want to approximate the function, we will not use infinite terms but, let's say, only the first \(N\). So the expression now is
-            <div style="font-size: 120%;">
+            <p>Or if we want to approximate the function, we will not use infinite terms but, let's say, only the first \(N\). So the expression now is</p>
+            <div class="latex-box">
             \[
                 f(x) \approx \sum_{n=0}^N \frac{(-1)^n \ x^{2n+1}}{(2n + 1)!}
             \]
             </div>
-            The higher-order terms (\(x^{2N + 3}\) and up) of the Taylor series are not included and they are what contribute to the error of the approximation.
+            <p>The higher-order terms (\(x^{2N + 3}\) and up) of the Taylor series are not included and they are what contribute to the error of the approximation.</p>
             <br>
             <br>
-            This would be a good point to actually explain the difference between Taylor expansion, Taylor polynomial and Taylor series, as these terms are not equivalent.
-            <ul>
+            <p>This would be a good point to actually explain the difference between Taylor expansion, Taylor polynomial and Taylor series, as these terms are not equivalent.</p>
+            <div class="latex-box">
+            <ul class="fancy-list">
                 <li> Taylor Series - A series with <b>infinite</b> terms.</li>
                 <li> Taylor Polynomial - A polynomial of order \(N\) that contains the first \(N\) terms of the Taylor Series.</li>
                 <li> Taylor Expansion - Refers to the result of expanding the function as a sum (finite or not). This means that "Taylor expansion" could refer to both the series and the polynomial depending on the context.</li>
             </ul>
+            </div>
             <br>
             <br>
-            In the image below we can see how the Taylor expansion helps us approximate \(f(x)\).
+            <p>In the image below we can see how the Taylor expansion helps us approximate \(f(x)\).</p>
             <br>
             <div style="text-align: center;">
                 <img src="../assets/taylor.png">
             </div>
-            As we can see from this plot for small values of \(x \;\; (\sim[-0.7, 0.7])\), the \(N = 1\) polynomial is a fairly good approximation. This is often encountered in physics as the "Small angle approximation"!
-            <div style="font-size: 120%;">
+            <p>As we can see from this plot for small values of \(x \;\; (\sim[-0.7, 0.7])\), the \(N = 1\) polynomial is a fairly good approximation. This is often encountered in physics as the "Small angle approximation"!</p>
+            <div class="latex-box">
             \[
                 \sin(x) \approx x
             \]
             </div>
-            We will see later an example where the small angle approximation helps find the equation of motion for a simple pendulum when the maximum angle of the swing is adequately small.
+            <p>We will see later an example where the small angle approximation helps find the equation of motion for a simple pendulum, when the swing is small enough.</p>
             <br>
             <br>
-            For larger values of \(N\) we see the Taylor polynomial starting to match the actual function more and more. For example, if \(x\) is in the interval \([2, 3]\) the small angle approximation isn't accurate at all. So we need to include more terms. One would say that from the plot we could use a polynomial of degree \(N = 5\). But can we do better? If we look closely at the Taylor polynomials, we can see that the approximation is "centered" around \(0\) and with each added term it becomes more accurate for further values. So why would we want to start approximating at \(x = 0\), and not for instance at \(x = 2.5\)? Can we even do that? The answer is not only we can, but we should! Let's see how.
+            <p>For larger values of \(N\) we see the Taylor polynomial starting to match the actual function more and more. For instance, if \(x\) is in the interval \([2, 3]\) the small angle approximation isn't accurate at all. So we need to include more terms. One would say that from the plot we could use a polynomial of degree \(N = 5\). But can we do better? If we look closely at the Taylor polynomials, we can see that the approximation is "centered" around \(0\), and with each added term it becomes more accurate for further values. So why would we want to start approximating at \(x = 0\), and not for instance at \(x = 2.5\)? Can we even do that? The answer? Not only can we, but we should! Let's see how.</p>
             <br>
             <br>
-            The trick is simple! We will just define a new function as follows
-            <div style="font-size: 120%">
+            <p>The trick is simple! We will just define a new function as follows</p>
+            <div class="latex-box">
             \[
                 g(x) = f(x + x_0)
             \]
             </div>
-            This new function is \(f\) shifted to left by an amount \(x_0\) (In our case it'd be \(2.5\)). From the chain rule we can see that
-            <div style="font-size: 120%">
+            <p>This new function is \(f\) shifted to left by an amount \(x_0\) (In our case it'd be \(2.5\)). From the chain rule we can see that</p>
+            <div class="latex-box">
             \[
                 g'(x) = f'(x + x_0) (x + x_0)' = f'(x + x_0)
             \]
             </div>
-            The same holds for the higher-order derivatives. Now we will expand the function as a Taylor series.
-            <div style="font-size: 120%">
+            <p>The same holds for the higher-order derivatives. Now we will expand the function as a Taylor series.</p>
+            <div class="latex-box">
             \[
                 g(x) = \sum_{n=0}^\infty \frac{g^{(n)}(0)}{n!}x^n
             \]
             </div>
-            Now if we substitute \(f\) back to the expression
-            <div style="font-size: 120%">
+            <p>Now if we substitute \(f\) back to the expression</p>
+            <div class="latex-box">
             \[
                 f(x + x_0) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!}x^n
             \]
             </div>
-            The final step is to define a new variable
-            <div style="font-size: 120%">
+            <p>The final step is to define a new variable</p>
+            <div class="latex-box">
             \[
                 u = x + x_0 \Longleftrightarrow x = u - x_0
             \]
             </div>
-            So finally we have
-            <div style="font-size: 120%">
+            <p>So finally we have</p>
+            <div class="latex-box">
             \[
                 f(u) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!}(u - x_0)^n
             \]
             </div>
-            Now for convenience sake we can rename \(u \to x\) (This is just a symbol change! It doesn't have anything to do with how \(u\) is defined).
-            <div style="font-size: 120%">
+            <p>Now for convenience sake we can rename \(u \to x\) (This is just a symbol change! It doesn't have anything to do with how \(u\) is defined).</p>
+            <div class="latex-box">
             \begin{equation} \tag{2}
                 f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n
             \end{equation}
             </div>
-            What we now have is a Taylor series centered around any random point \(x_0\). As you may recall, earlier when we first derived the Taylor series, I called it the "Maclaurin" series and this is for a reason. The expression we've just reached is the Taylor series in its most general form. If we set \(x_0 = 0\), we get a special case of the Taylor series centered around \(0\). This series has a special name -the Maclaurin series-. So finally we can understand the distinction between the two. The Taylor series is an infinite sum centered around some point \(x_0\), that converges on the function. The Maclaurin series is a special type of Taylor series where \(x_0 = 0\).
+            <p>What we now have is a Taylor series centered around any random point \(x_0\). As you may recall, earlier when we first derived the Taylor series, I called it the "Maclaurin" series and this was for a reason. The expression we've just reached is the Taylor series in its most general form. If we set \(x_0 = 0\), we get a special case of the Taylor series centered around \(0\). This series has a special name -the Maclaurin series-. So finally we can understand the distinction between the two. The Taylor series is an infinite sum centered around some point \(x_0\), that converges on the function. The Maclaurin series is a special type of Taylor series where \(x_0 = 0\).</p>
             <br>
             <br>
-            For the example above the Taylor expansion of \(f(x) = \sin(x)\) centered around \(x = 2.5\) is
+            <p>For the example above the Taylor expansion of \(f(x) = \sin(x)\) centered around \(x = 2.5\) is</p>
             <br>
             <div style="text-align: center;">
                 <img src="../assets/taylor_x25.png">
             </div>
-            See how we can approximate the values of the function (at any small interval) even with small number of terms, if we choose the appropriate \(x_0\). In our case for \(x \in [2, 3]\) we can find a pretty accurate approximation even with just \(N = 2\). If we used the first series we derived earlier we'd need \(5\) terms!
+            <p>See how we can approximate the values of the function (at any small interval) even with small number of terms, if we choose the appropriate \(x_0\). In our case for \(x \in [2, 3]\) we can find a pretty accurate approximation even with just \(N = 2\). If we used the first series we derived earlier we'd need \(5\) terms!</p>
             <br>
             <br>
-            Small tangent: Notice how now the \(N = 1\) isn't actually linear, like we saw previously. That is because we didn't directly plot
-            <div style="font-size: 120%">
+            <p>Small tangent: Notice how now the \(N = 1\) is a constant function and not a linear one with non-zero slope, like we saw previously. That is because previously we didn't directly plot</p>
+            <div class="latex-box">
                 \[
                     f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n
                 \]
             </div>
-            but instead, starting from the above we reached the expression (for \(f(x) = \sin(x)\))
-            <div style="font-size: 120%">
+            <p>but instead, starting from the above we reached the expression (for \(f(x) = \sin(x)\))</p>
+            <div class="latex-box">
                 \[
                     f(x) = \sum_{n=0}^\infty \frac{(-1)^n \ x^{2n+1}}{(2n + 1)!}
                 \]
             </div>
-            Which of course only contains odd powers of \(x\) starting from \(1\). Now we are plotting
-            <div style="font-size: 120%">
+            <p>Which of course only contains odd powers of \(x\) starting from \(1\). Now we are plotting</p>
+            <div class="latex-box">
                 \[
                     f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n
                 \]
             </div>
-            with \(x_0 = 2.5\), so we expect the first term to be \(f(2.5)\), which explains that when \(N = 1\) we get the equation \(y = f(2.5) = \sin(2.5) \approx 0.6\) and not a linear one. Small tangent over.
+            <p>with \(x_0 = 2.5\), so we expect the first term to be \(f(2.5)\), which explains that when \(N = 1\) we get the equation \(y = f(2.5) = \sin(2.5) \approx 0.6\) with a slope of zero. Small tangent over.</p>
             <br>
             <br>
             <h2>Where can we use the Taylor series?</h2>
-            Now that we know what the Taylor series is, let's see some applications!
+            <p>Now that we know what the Taylor series is, let's see some applications!</p>
             <br>
             <br>
             <h3>Pendulum: A seemingly easy physics exercise</h3>
-            One of the problems physics students often encounter in their introductory classical mechanics course is the simple pendulum. The setup is as follows.
+            <p>One of the problems physics students often encounter in their introductory classical mechanics course is the simple pendulum. The setup is as follows.</p>
             <br>
             <br>
-            We have a small weight of mass \(M\) hanging from a string of length \(L\) placed on the ceiling. At a time \(t_0 = 0\), we displace the weight by some angle \(\theta_0\) while keeping the string under tension and we let go. If we assume there is no air resistance, the pendulum will swing indefinitely between an angle of \(-\theta_0\) and \(\theta_0\).
+            <p>We have a small weight of mass \(M\) hanging from a string of length \(L\) placed on the ceiling. At a time \(t_0 = 0\), we displace the weight by some angle \(\theta_0\) while keeping the string under tension and we let go. If we assume there is no air resistance, the pendulum will swing indefinitely between an angle of \(-\theta_0\) and \(\theta_0\).</p>
             <div style="text-align: center;">
                 <img src="../assets/pendulum.jpg">
             </div>
-            From Newtonian mechanics we know that to solve this problem we need to first draw the Free Body Diagram for a random angle \(\theta\).
+            <p>From Newtonian mechanics we know that to solve this problem we need to first draw the Free Body Diagram for a random angle \(\theta\).</p>
             <div style="text-align: center;">
                 <img src="../assets/pendulum_fbd.jpg">
             </div>
-            Where in this image, \(\vec{W}\) is the weight of the mass, and \(\vec{T}\) is the tension of the string. We can see that the weight can be analysed into a radial \(\vec{W_r}\) and a tangential \(\vec{W_{\theta}}\) component where
-            <div style="font-size: 120%">
+            <p>Where in this image, \(\vec{W}\) is the weight of the mass, and \(\vec{T}\) is the tension of the string. We can see that the weight can be analysed into a radial \(\vec{W_r}\) and a tangential \(\vec{W_{\theta}}\) component where</p>
+            <div class="latex-box">
                 \[
                     W_r = W \cos(\theta) = Mg \cos(\theta), \;\; W_{\theta} = W \sin(\theta) = Mg \sin(\theta)
                 \]
             </div>
-            If we apply Newton's second law in the radial direction we get
-            <div style="font-size: 120%">
+            <p>If we apply Newton's second law in the radial direction we get</p>
+            <div class="latex-box">
                 \[
                     \sum F_r = Ma_r = M \frac{d^2 r}{dt^2}
                 \]
             </div>
-            We know though that the string is always under tension, meaning that the distance from the ceiling is always \(r = L\). Therefore
-            <div style="font-size: 120%">
+            <p>We know though that the string is always under tension, meaning that the distance from the ceiling is always \(r = L\). Therefore</p>
+            <div class="latex-box">
                 \[
                     \frac{d^2 r}{dt^2} = 0 \implies \sum F_r = 0 \implies W_r - T = 0 \Longleftrightarrow T = Mg \cos(\theta)
                 \]
             </div>
-            But this doesn't tell us much about the motion of the mass. It does give us though an expression for the tension. Let's see what Newton's second law in the tangential direction gives us!
-            <div style="font-size: 120%">
+            <p>But this doesn't tell us much about the motion of the mass. It does give us though an expression for the tension. Let's see what Newton's second law in the tangential direction gives us!</p>
+            <div class="latex-box">
                 \[
                     \sum F_{\theta} = Ma_{\theta} = M \frac{d^2 S}{dt^2}
                 \]
             </div>
-            Where \(S\) is the length of the arc, starting from the center, that the mass has covered in time \(t\). It's given by the expression \(S = L \theta\). So
-            <div style="font-size: 120%">
+            <p>Where \(S\) is the length of the arc, starting from the center, that the mass has covered in the time interval from \(t_0 = 0\) to \(t\). It's given by the expression \(S = L \theta\). So</p>
+            <div class="latex-box">
                 \[
                     \sum F_{\theta} = ML \frac{d^2 \theta}{dt^2} \implies W_{\theta} = -ML \frac{d^2 \theta}{dt^2} \implies Mg \sin(\theta) = -ML \frac{d^2 \theta}{dt^2}
                 \]
             </div>
-            (The (\(-\)) here indicates that the force is always opposite to the direction of motion.) So the equation of motion that we need to solve is
-            <div style="font-size: 120%">
+            <p>(The (\(-\)) here indicates that the force is always opposite to the direction of motion.) So the equation of motion that we need to solve is</p>
+            <div class="latex-box">
                 \[
                     \frac{d^2 \theta}{dt^2} = -\frac{g}{L} \sin(\theta); \; \theta(0) = \theta_0, \frac{d\theta}{dt} \Big|_{t=0} = 0
                 \]
             </div>
-            (The \(\theta(0) = \theta_0\) tells us that we initially let go of the mass from an angle \(\theta_0\), and the \(\dfrac{d\theta}{dt} \Big|_{t=0} = 0\) tells us that we didn't give it any inital velocity.)
+            <p>(The \(\theta(0) = \theta_0\) tells us that we initially let go of the mass from an angle \(\theta_0\), and the \(\dfrac{d\theta}{dt} \Big|_{t=0} = 0\) tells us that we didn't give it any inital velocity.)</p>
             <br>
             <br>
-            If you try to solve this differential equation analytically you'll very quickly realize that the \(\sin(\theta)\) term is troublesome. If only there was a way to get rid of it... Well, if we assume that \(\theta_0\) is small we can use the small angle approximation that we derived from the Taylor expansion of \(f(x) = \sin(x)\)! Let's see what we get now
-            <div style="font-size: 120%">
+            <p>If you try to solve this differential equation analytically you'll very quickly realize that the \(\sin(\theta)\) term is troublesome. If only there was a way to get rid of it... Well, if we assume that \(\theta_0\) is small we can use the small angle approximation that we derived from the Taylor expansion of \(f(x) = \sin(x)\)! Let's see what we get now</p>
+            <div class="latex-box">
                 \[
                     \frac{d^2 \theta}{dt^2} = -\frac{g}{L} \sin(\theta) \approx -\frac{g}{L} \theta \implies \theta(t) = A\sin\left(\sqrt{\frac{g}{L}}t\right) + B\cos\left(\sqrt{\frac{g}{L}}t\right)
                 \]
             </div>
-            (You can check that this solution is valid by plugging it in the equation.) Now we need to find the coefficients \(A\) and \(B\) from the initial conditions. To keep things short I'll simply give the solution
-            <div style="font-size: 120%">
+            <p>(You can check that this solution is valid by plugging it in the equation.) Now we need to find the coefficients \(A\) and \(B\) from the initial conditions. To keep things short I'll simply give the solution</p>
+            <div class="latex-box">
                 \[
                     \theta(t) = \theta_0\cos\left(\sqrt{\frac{g}{L}}t\right)
                 \]
             </div>
-            Remember! This is only an approximation of the actual solution. For small initial angles \(\theta_0\) the two very closely match. We can see this below.
+            <p>Remember! This is only an approximation of the actual solution. For small initial angles \(\theta_0\) the two very closely match. We can see this below.</p>
             <div style="text-align: center;">
                 <img src="../assets/pendulum_01.png">
             </div>
@@ -303,55 +312,55 @@
             <div style="text-align: center;">
                 <img src="../assets/pendulum_314.png">
             </div>
-            But wait a second... How are we comparing the approximation to the actual solution? How can we find it, if solving the differential equation is so difficult? Can we approximate the solution to any differential equation? Yes, we can! As for the how, let me introduce you to
+            <p>But wait a second... How are we comparing the approximation to the actual solution? Didn't you just say that solving the differential equation was troublesome? The answer is of course approximating! Wait, we can approximate the solution to any differential equation? Yes, we can! As for the how, let me introduce you to</p>
             <br>
             <br>
             <h3>Finite Differences: Approximating derivatives</h3>
-            Now let's see a second application of the Taylor expansion. We will not go into much detail as the theory and applications of the Finite Differences method will be discussed in a separate article.
+            <p>Now let's see a second application of the Taylor expansion. We will not go into much detail as the theory and applications of the Finite Differences method will be discussed in a separate article.</p>
             <br>
             <br>
-            Let's suppose we have a function \(f: A \to \mathbb{R}\), and we need to calculate the derivative of the function at some point \(x_i\). If we take a step in the \(x\)-axis, \(\Delta x\), then if we Taylor expand the function at \(x_i + \Delta x\) we get
-            <div style="font-size: 120%">
+            <p>Let's suppose we have a function \(f: A \to \mathbb{R}\), and we need to calculate the derivative of the function at some point \(x_i\). If we take a step in the \(x\)-axis, \(\Delta x\), then if we Taylor expand the function at \(x_i + \Delta x\) we get</p>
+            <div class="latex-box">
                 \[
                     f(x_i + \Delta x) = f(x_i) + f'(x_i) (x_i + \Delta x - x_i) + \frac{f''(x_i)}{2} (x_i + \Delta x - x_i)^2 + \dots \implies f(x_i + \Delta x) = f(x_i) + f'(x_i) \Delta x + \frac{f''(x_i)}{2} \Delta x^2 + \dots
                 \]
             </div>
-            If we rearrange the equation we get
-            <div style="font-size: 120%">
+            <p>If we rearrange the equation we get</p>
+            <div class="latex-box">
                 \[
                     f'(x_i) = \frac{f(x_i + \Delta x) - f(x_i)}{\Delta x} - \frac{f''(x_i)}{2} \Delta x + \dots
                 \]
             </div>
-            If \(\Delta x < 1\), then we can assume that \(\dfrac{f''(x_i)}{2} \Delta x \approx 0\). Therefore
-            <div style="font-size: 120%">
+            <p>If \(\Delta x < 1\), then we can assume that \(\dfrac{f''(x_i)}{2} \Delta x \approx 0\). Therefore</p>
+            <div class="latex-box">
                 \[
                     f'(x_i) \approx \frac{f(x_i + \Delta x) - f(x_i)}{\Delta x}
                 \]
             </div>
-            The term \(\dfrac{f''(x_i)}{2} \Delta x\) and the ones that come after, contribute to the error of this approximation. Since \(\forall n \in \mathbb{N}, \; n > 1: \; \Delta x > \Delta x^n\) we can say that the error in this case will be of order \(\Delta x\) and it will be denoted \(\mathcal{O}(\Delta x)\). This means that the error depends <i>almost</i> linearly on the step size \(\Delta x\). (I say <i>almost</i> because the higer order terms also contribute, albeit very little).
+            <p>The term \(\dfrac{f''(x_i)}{2} \Delta x\) and the ones that come after, contribute to the error of this approximation. Since \(\forall n \in \mathbb{N}, \; n > 1: \; \Delta x > \Delta x^n\) for \(\Delta x < 1\), we can say that the error in this case will be of order \(\Delta x\) and it will be denoted \(\mathcal{O}(\Delta x)\). This means that the error depends <i>almost</i> linearly on the step size \(\Delta x\). (I say <i>almost</i> because the higer order terms also contribute, albeit very little).</p>
             <br>
             <br>
-            What we have done now is find a way to approximately find derivatives. The smaller the step size, the better the approximation. Of course we can see that in the limit as \(\Delta x \to 0\)
-            <div style="font-size: 120%">
+            <p>What we have done now is find a way to approximately find derivatives. The smaller the step size, the better the approximation. Of course we can see that in the limit as \(\Delta x \to 0\)</p>
+            <div class="latex-box">
                 \[
                     \lim_{\Delta x \to 0} \frac{f(x_i + \Delta x) - f(x_i)}{\Delta x} \equiv f'(x_i)
                 \]
             </div>
-            So this expression converges on the actual value when \(\Delta x\) is infinitesimally small.
+            <p>So this expression converges on the actual value when \(\Delta x\) is infinitesimally small.</p>
             <br>
             <br>
-            For more details on the Finite Differences method you'll wait for the separate Finite Differnces article (If I've written it, it'll probably be here).
+            <p>For more details on the Finite Differences method you'll have to wait for the separate Finite Differnces article (It'll be here when it's ready).</p>
             <br>
             <br>
             <h2>The Taylor series in MORE dimensions!</h2>
-            So far we've dealt with single-variable functions, but the same apply to multivariable ones. Again let's assume a function, but this time it'll be a function of two variables \(f : A \subseteq \mathbb{R}^2 \to \mathbb{R}\). Following a similar argument, we will assume that the function can be written as a power series
-            <div style="font-size: 120%">
+            <p>So far we've dealt with single-variable functions, but the same apply to multivariable ones. Again let's assume a function, but this time it'll be a function of two variables \(f : A \subseteq \mathbb{R}^2 \to \mathbb{R}\). Following a similar argument, we will assume that the function can be written as a power series</p>
+            <div class="latex-box">
                 \[
                     f(x, y) = a_{00} + a_{10} x + a_{01} y + a_{11} xy + a_{20} x^2 + a_{02} y^2 + \dots
                 \]
             </div>
-            Again \(a_{00} = f(0, 0)\), and for the other terms we take the partial derivatives
-            <div style="font-size: 120%">
+            <p>Again \(a_{00} = f(0, 0)\), and for the other terms we take the partial derivatives</p>
+            <div class="latex-box">
                 \[
                     \frac{\partial f}{\partial x}\Big|_{(0, 0)} = a_{10}
                 \]
@@ -368,29 +377,29 @@
                     \frac{\partial^2 f}{\partial x \partial y}\Big|_{(0, 0)} = a_{11}
                 \]
             </div>
-            And in general
-            <div style="font-size: 120%">
+            <p>And in general</p>
+            <div class="latex-box">
                 \[
                     \frac{\partial^{i+j} f}{\partial x^i \partial y^j}\Big|_{(0, 0)} = i!\;j!\;a_{ij} \implies a_{ij} = \frac{1}{i!\;j!}\frac{\partial^{i+j} f}{\partial x^i \partial y^j}\Big|_{(0, 0)}
                 \]
             </div>
-            Therefore the Taylor expansion centered around \(x = 0\) (Multivariable Maclaurin series) is
-            <div style="font-size: 120%">
+            <p>Therefore the Taylor expansion centered around \(x = 0\) (Multivariable Maclaurin series) is</p>
+            <div class="latex-box">
                 \begin{equation} \tag{3}
                     f(x, y) = \sum_{i = 0}^\infty \sum_{j = 0}^\infty \frac{1}{i!\;j!}\frac{\partial^{i+j} f}{\partial x^i \partial y^j}\Big|_{(0, 0)} x^i y^j
                 \end{equation}
             </div>
-            Whereas, centered around some random point \((x_0, y_0)\)
-            <div style="font-size: 120%">
+            <p>Whereas, centered around some random point \((x_0, y_0)\)</p>
+            <div class="latex-box">
                 \begin{equation} \tag{4}
                     f(x, y) = \sum_{i = 0}^\infty \sum_{j = 0}^\infty \frac{1}{i!\;j!}\frac{\partial^{i+j} f}{\partial x^i \partial y^j}\Big|_{(x_0, \; y_0)} (x - x_0)^i (y - y_0)^j
                 \end{equation}
             </div>
-            The above expression can be derived following the same logic from the generalization of the single-variable Maclaurin series. Similar expressions can be found for functions with more than two variables.
+            <p>The above expression can be derived following the same logic from the generalization of the single-variable Maclaurin series. Similar expressions can be found for functions with more than two variables.</p>
             <br>
             <br>
             <h2>Conclusion</h2>
-            Hopefully, now we can understand where the Taylor series and polynomials come from. We have derived them, in their most general form, for single-variable functions and begun to dip our toes into some very basic applications. As we'll see later (Especially in the Finite Differences article) the Taylor series is a very important tool in Numerical Analysis. Also it plays a very important role in analytically solving differential equations. The <a href="https://en.wikipedia.org/wiki/Power_series_solution_of_differential_equations" target="_blank">Power Series Method</a> is a very powerful method to solve ODEs and PDEs alike that is in part based on Taylor series. We can additionally see how it simplifies difficult physics problems, giving us an approximate solution that can be accurate enough in most cases, like in the case of the Simple Pendulum. 
+            <p>Hopefully, now we can understand where the Taylor series and polynomials come from. We have derived them in their most general form for single-variable functions, and begun to dip our toes into some very basic applications. As we'll see later, (Especially in the Finite Differences article) the Taylor series is a very important tool in Numerical Analysis. Also it plays a very important role in analytically solving differential equations. The <a href="https://en.wikipedia.org/wiki/Power_series_solution_of_differential_equations" target="_blank">Power Series Method</a> is a very powerful method used to solve both ODEs and PDEs alike, that is in part based on Taylor series. We can additionally see how it simplifies difficult physics problems, giving us an approximate solution that can be accurate enough in most cases, like in the case of the Simple Pendulum.</p>
         </main>
 
         <!-- FOOTER -->
